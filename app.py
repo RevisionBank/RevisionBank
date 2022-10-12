@@ -1,6 +1,5 @@
 import base64
 import concurrent
-from crypt import methods
 import os
 from concurrent.futures import thread
 from datetime import datetime
