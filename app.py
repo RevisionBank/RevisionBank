@@ -472,7 +472,7 @@ def sendnowrevisioncard():
             data = request.get_json()
             now = datetime.now().strftime("%c")
             message = f"""{data['revisioncards'][0]['revisioncardtitle']}{data["revisioncards"][0]["revisioncard"]}"""
-            response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":data["sendtoemail"],"message":message,"subject":f"{data['revisioncards'][0]['subject']} Send Now"}})
+            response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":data["sendtoemail"],"message":message,"subject":f"{data['revisioncards'][0]['subject']} Send Now"}})
             #print(response.text)
             #msg = Message(f"{data['revisioncards'][0]['subject']} Send Now", recipients=[data["sendtoemail"]]) # "amari.lawal@gmail.com"
             #msg.body = f"Mail from RevisionCard Send Now at {now}"
@@ -613,7 +613,7 @@ def fmathsqp():
                         <h1>The Further Maths question papers links:</h1>
                         <p>{linkmessage}</p>.
                         """
-                        response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathqp PDFs"}})
+                        response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathqp PDFs"}})
                         
                         #msg = Message("FMathqp PDFs", recipients=[email]) # "amari.lawal@gmail.com"
                         #msg.body = f"Mail from FMathqp at {now}"
@@ -651,7 +651,7 @@ def fmathsqp():
                         <h1>The Further Maths question papers links:</h1>
                         <p>{linkmessage}</p>.
                         """
-                        response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathqp PDFs"}})
+                        response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathqp PDFs"}})
                         
                         user_from_db.update({"emailsleft":int(user_from_db["emailsleft"])-1})
                         importcsv.db.studentsubscriptions.update_one({"email": current_user}, {"$set": user_from_db},upsert=True)
@@ -748,7 +748,7 @@ def fmathsb():
                         <h1>The Further Maths Solution Bank links:</h1>
                         <p>{linkmessage}</p>.
                         """
-                        response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathSB PDFs"}})
+                        response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathSB PDFs"}})
                         
                         #msg = Message("FMathSB PDFs", recipients=[email]) # "amari.lawal@gmail.com"
                         #msg.body = f"Mail from FMathsb at {now}"
@@ -787,7 +787,7 @@ def fmathsb():
                         <h1>The Further Maths Solution Bank links:</h1>
                         <p>{linkmessage}</p>.
                         """
-                        response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathSB PDFs"}})
+                        response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":"FMathSB PDFs"}})
                         
                         user_from_db.update({"emailsleft":int(user_from_db["emailsleft"])-1})
                         importcsv.db.studentsubscriptions.update_one({"email": current_user}, {"$set": user_from_db},upsert=True)
@@ -852,7 +852,7 @@ def scienceocranswers():
                     <h1>OCR Science {query} Answers:</h1>
                     <p>{answerlink}</p>.
                     """
-                    response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"OCR {query} Answers"}})
+                    response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"OCR {query} Answers"}})
                     
                     #msg = Message(f"OCR {query} Answers", recipients=[email]) # "amari.lawal@gmail.com"
                     #msg.body = f"Mail from {query} at {now}"
@@ -880,7 +880,7 @@ def scienceocranswers():
                     <h1>OCR Science {query} Answers:</h1>
                     <p>{answerlink}</p>.
                     """
-                    response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"OCR {query} Answers"}})     
+                    response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"OCR {query} Answers"}})     
                     user_from_db.update({"emailsleft":int(user_from_db["emailsleft"])-1})
                     importcsv.db.studentsubscriptions.update_one({"email": current_user}, {"$set": user_from_db},upsert=True)
                     result = {"scienceocranswers": answerlink,"emailcount":int(user_from_db["emailsleft"])-1,"end_date_subscription":9999999}
@@ -926,7 +926,7 @@ def physicsaqa():
                     <p>{questionpaper}</p>
                     <p>{markscheme}</p>.
                     """
-                    response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"PhysicsAqa Papers"}})
+                    response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"PhysicsAqa Papers"}})
                     #msg = Message(f"PhysicsAqa Papers", recipients=[email]) # "amari.lawal@gmail.com"
                     #msg.body = f"Mail from physicsaqaApi at {now}"
                     #msg.html = f"""
@@ -953,7 +953,7 @@ def physicsaqa():
                     <p>{questionpaper}</p>
                     <p>{markscheme}</p>.
                     """
-                    response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"PhysicsAqa Papers"}})
+                    response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":email,"message":message,"subject":f"PhysicsAqa Papers"}})
 
                     user_from_db.update({"emailsleft":int(user_from_db["emailsleft"])-1})
                     importcsv.db.studentsubscriptions.update_one({"email": current_user}, {"$set": user_from_db},upsert=True)
@@ -1039,7 +1039,7 @@ def forgotpassword():
         access_token = create_access_token(identity=data["email"])
         # store token in database temporarily
         now = datetime.now().strftime("%c")
-        response = requests.post("http://77.97.128.43/raspsendemail",json={"raspsendemail":{"email":data["email"],"message":forgotpasswordemail(data["email"],access_token),"subject":f"RevsionBank Password Reset"}})
+        response = requests.post("https://revisionbank.onrender.com/raspsendemail",json={"raspsendemail":{"email":data["email"],"message":forgotpasswordemail(data["email"],access_token),"subject":f"RevsionBank Password Reset"}})
         #msg = Message(f"RevsionBank Password Reset", recipients=[data["email"]]) # "amari.lawal@gmail.com"
         #msg.body = f"Mail from RevisionBank at {now}"
         #msg.html = forgotpasswordemail(data["email"],access_token)
